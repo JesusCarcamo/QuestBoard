@@ -1,11 +1,10 @@
 /* Show it's not fixed to the top */
 body {
   min-height: 65rem;
-
 }
 
 .bg-dark{
-  background-color: #2c4660 !important;
+  background-color: #8b5520 !important;
 }
 
 .mb-4{
@@ -13,27 +12,27 @@ body {
 }
 
 .navbar-brand{
-  color: #ba8b00 !important;
-}
-
-.navbar-brand:hover{
   color: gold !important;
 }
 
+.navbar-brand:hover{
+  color: #ba8b00 !important;
+}
+
 .navbar-dark .navbar-nav .nav-link{
-  color: orange;
+  color: #00ff30;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover{
-  color: darkorange;
+  color: #008d1d;
 }
 
 .navbar-dark .navbar-nav .active > .nav-link{
-  color: green;
+  color: #29e3f2;
 }
 
 .navbar-dark .navbar-nav .active > .nav-link:hover{
-  color: greenyellow;
+  color: #06076a;
 }
 
 .btn{
