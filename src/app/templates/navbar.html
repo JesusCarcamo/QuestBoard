@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="navbar-brand" href="/">Quest Board</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,33 +13,33 @@
                 <a class="nav-link" href="">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Torneos</a>
+                <a class="nav-link disabled" href="" aria-disabled="true">Misiones</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Misiones</a>
+                <a class="nav-link" href="">Torneos</a>
             </li>
             <!--<li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>-->
         </ul>
 
-        <!--<ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
 
-      <li class="nav-item">
-        <a class="nav-link" href="">Registrarte</a>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" href=""><img src="{% static 'img/quest_board_logo.jpg' %}" align = "left" style="width: 2.5rem"></a>
+            </li>
 
-    </ul>
+        </ul>
 
-    <form class="navbar-form navbar-right" method="POST" action="">{% csrf_token %}
-      <div class="form-group">
-        <input type ="text" class="form-control" name="username" placeholder="usuario">
-      </div>      <div class="form-group">
-        <input type ="password" class="form-control" name="password" placeholder="contraseña">
-      </div>
-      <button type="submit" class="btn btn-default">Entrar</button>
+        <!--<form class="navbar-form navbar-right" method="POST" action="">{% csrf_token %}
+            <div class="form-group">
+                <input type ="text" class="form-control" name="username" placeholder="usuario">
+            </div>      <div class="form-group">
+                <input type ="password" class="form-control" name="password" placeholder="contraseña">
+            </div>
+            <button type="submit" class="btn btn-default">Entrar</button>
 
-    </form>-->
+        </form>-->
 
         <!--<form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

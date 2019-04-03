@@ -37,14 +37,14 @@ body {
 }
 
 .btn{
-  color: gold;
-  background-color: #0c5460;
+  /*color: gold;
+  background-color: #0c5460;*/
 }
 
 
 .btn:hover{
-  color: palegoldenrod;
-  background-color: #4e555b;
+  /*color: palegoldenrod;
+  background-color: #4e555b;*/
 }
 
 
