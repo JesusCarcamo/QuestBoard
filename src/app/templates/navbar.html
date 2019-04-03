@@ -1,6 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <a class="navbar-brand" href="/">Quest Board</a>
+    <img src="{% static 'img/quest_board_logo.jpg' %}" align = "left" style="width: 2.5rem">
+    <a class="navbar-brand" href="/" style="margin-left: 20px">Misiones</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,23 +14,20 @@
                 <a class="nav-link" href="">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="" aria-disabled="true">Misiones</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Torneos</a>
+                <a class="nav-link  disabled" href="" aria-disabled="true">Torneos</a>
             </li>
             <!--<li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>-->
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+        <!--<ul class="nav navbar-nav navbar-right">
 
             <li class="nav-item">
                 <a class="nav-link" href=""><img src="{% static 'img/quest_board_logo.jpg' %}" align = "left" style="width: 2.5rem"></a>
             </li>
 
-        </ul>
+        </ul>-->
 
         <!--<form class="navbar-form navbar-right" method="POST" action="">{% csrf_token %}
             <div class="form-group">

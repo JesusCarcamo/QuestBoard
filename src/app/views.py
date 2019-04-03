@@ -7,3 +7,9 @@ def inicio(request):
 
     }
     return render(request, "inicio.html",context)
+
+def ingresar(request):
+    context = {
+
+    }
+    return render(request, "ingresar.html",context)
