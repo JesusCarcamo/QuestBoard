@@ -34,4 +34,16 @@ $(function() {
         $(".btn-goback").toggleClass("btn-goback-up");
         $(".forgot").toggleClass("forgot-fade");
     });
+
+});
+
+$(function() {
+    $(".btn-goback").click(function() {
+        $("#match").show();
+        $("#tablero").show();
+        $("#salir").show();
+        $("#menu").css("top", "25%");
+        $("#ingresar").hide();
+    });
+
 });

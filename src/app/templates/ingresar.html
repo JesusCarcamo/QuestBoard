@@ -4,17 +4,10 @@
 <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
+<html lang="en" id="html">
 <!--<![endif]-->
 
-<head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>QuestBoard</title>
-    <meta name="description" content="">
-    <meta name="ImposibleAlliance" content="">
+<head id="head">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -30,14 +23,10 @@
     <script src="{% static 'js/plugins.js' %}"></script>
     <script src="{% static 'js/ingresar.js' %}"></script>
 
-    <!--
-    ================================================== -->
-
-
 </head>
 
-<body id="top">
-<div class="container">
+<body id="body">
+<div class="container" id="containerIngresar">
     <div class="frame">
         <div class="nav">
             <ul class="links">
@@ -74,7 +63,7 @@
                 <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 60 60" id="check" ng-class="checked ? 'checked' : ''">
 
-
+                </svg>
             </div>
         </div>
 
@@ -87,7 +76,7 @@
             <div class="profile-photo"></div>
             <h1 class="welcome">Bienvenido</h1>
             <h1 class="welcome2">Bienvenido a QuestBoard</h1>
-            <a class="btn-goback" value="Refresh" href="">Seguir</a>
+            <a class="btn-goback" value="Refresh" href="#t1">Seguir</a>
         </div>
     </div>
 

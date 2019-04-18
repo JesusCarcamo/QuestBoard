@@ -1,31 +1,317 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v3.8.5">
-  <title>{% block head_title %} PD 110 {% endblock %}</title>
+<html lang="en" >
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-static/">
+<head>
+  <meta charset="UTF-8">
+  <title>QuestBoard</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/misiones.css' %}">
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+
+  <link rel="shortcut icon" href="{% static 'img/logo.jpg' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'img/logo.jpg' %}" type="image/x-icon">
+
 
   <style>
-    {% block style %}
 
-    {% endblock %}
+    /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+    html, body, .page {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    * {
+      font-family: 'open sans', 'lato', 'helvetica', sans-serif;
+    }
+
+    .page {
+      position: absolute;
+    }
+
+    #p1 {
+      left: 0;
+    }
+
+    #p2, #p3, #p4, #p5 {
+      left: 200%;
+    }
+
+    #p1 { background: #EECB0E  ; }
+    #p2
+    {
+      display: flex;
+      background: tomato;
+      align-items: center;
+      justify-content: center;
+    }
+    #p3 { background: gold; }
+    #p4 { background: deeppink; }
+    #p5 { background: rebeccapurple; }
+
+    #t2:target #p2,
+    #t3:target #p3,
+    #t4:target #p4,
+    #t5:target #p5 {
+      transform: translateX(-190%);
+      -webkit-transform: translateX(-190%);
+      -moz-transform: translateX(-190%);
+      -o-transform: translateX(-190%);
+      transition-delay: .4s !important;
+    }
+
+    #t2:target #p1,
+    #t3:target #p1,
+    #t4:target #p1,
+    #t5:target #p1{
+      background: black;
+    }
+
+    #t2:target #p1 .icon,
+    #t3:target #p1 .icon,
+    #t4:target #p1 .icon,
+    #t5:target #p1 .icon {
+      -webkit-filter: blur(3px);
+    }
+
+    .icon {
+      color: #fff;
+      font-size: 32px;
+      display: block;
+    }
+
+    ul .icon:hover {
+      opacity: 0.5;
+    }
+
+
+    #t2:target ul .icon,
+    #t3:target ul .icon,
+    #t4:target ul .icon,
+    #t5:target ul .icon{
+      transform: scale(.6);
+      -webkit-transform: scale(.6);
+      -moz-transform: scale(.6);
+      -o-transform: scale(.6);
+      transition-delay: .25s;
+    }
+
+    #t2:target #dos,
+    #t3:target #tres,
+    #t4:target #cuatro,
+    #t5:target #cinco {
+      transform: scale(1.2) !important;
+      -webkit-transform: scale(1.2) !important;
+      -moz-transform: scale(1.2) !important;
+      -o-transform: scale(1.2) !important;
+    }
+
+    #menu {
+      position: fixed;
+      z-index: 1;
+      bottom: 0;
+      left: 0;
+      top: 20%;
+      margin: 0px auto auto auto;
+      height: 280px;
+      width: 10%;
+      padding: 0;
+      text-align: center;
+    }
+
+    #menu .icon {
+      margin: 30px 0px 0px 0px;
+      transition: all .5s ease-out !important;
+      -webkit-transition: all .5s ease-out;
+      -moz-transition: all .5s ease-out;
+      -o-transition: all .5s ease-out;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .title, .hint {
+      display: block;
+    }
+
+    .title {
+      font-size: 38px;
+    }
+
+    .hint {
+      font-size: 13px;
+    }
+
+    #p4 .hint {
+      display: inherit !important;
+    }
+
+    .hint a {
+      color: yellow;
+      transition: all 250ms ease-out;
+      -webkit-transition: all 250ms ease-out;
+      -moz-transition: all 250ms ease-out;
+      -o-transition: all 250ms ease-out;
+    }
+
+    .hint a:hover {
+      color: #FFF;
+    }
+
+    .line-trough {
+      text-decoration: line-through;
+    }
+
+    .page .icon {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 10%;
+      left: 0;
+      width: 270px;
+      height: 170px;
+      margin: auto;
+      text-align: center;
+      font-size: 80px;
+      line-height: 1.3;
+      transform: translateX(360%);
+      -webkit-transform: translateX(360%);
+      -moz-transform: translateX(360%);
+      -o-transform: translateX(360%);
+      transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+      -webkit-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+      -moz-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+      -o-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+    }
+
+    .page#p1 .icon {
+      height: 220px;
+    }
+
+    .page#p1 .icon {
+      transform: translateX(10%) !important;
+    }
+
+    #t2:target .page#p2 .icon,
+    #t3:target .page#p3 .icon,
+    #t4:target .page#p4 .icon,
+    #t5:target .page#p5 .icon {
+      transform: translateX(0) !important;
+      -webkit-transform: translateX(0) !important;
+      -moz-transform: translateX(0) !important;
+      -o-transform: translateX(0) !important;
+      transition-delay: 1s;
+    }
+
+    body{
+      background: #f1f1f1;
+    }
+    .s-m{
+      position: absolute;
+      top: 50%;
+      left: 95%;
+      transform: translate(-50%,-50%);
+    }
+    .s-m a{
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      background: #2c3e50;
+      color: white;
+      margin: 6px 0;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s;
+      font-size: 22px;
+
+    }
+    .s-m a:hover{
+      background: #e67e22;
+    }
+    .s-m a i{
+      transition: 0.4s all;
+    }
+    .s-m a:hover > i{
+      transform: scale(1.6) rotate(25deg);
+    }
+
   </style>
 
-  {% include "head_css.html" %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="{% static 'js/base.js' %}"></script>
 </head>
+
 <body>
-{% include "navbar.html" %}
 
-<main role="main" class="container-fluid">
+<div class="ct" id="t1">
+  <div class="ct" id="t2">
+    <div class="ct" id="t3">
+      <div class="ct" id="t4">
+        <div class="ct" id="t5">
+          <ul id="menu">
+            <a href="#t1" ><li class="icon fa fa-bolt" id="uno"></li><h6>Inicio</h6></a>
+            <a href="#t2" id="match"><li class="icon fa fa-keyboard-o" id="dos"></li><h6>Match</h6></a>
+            <a href="#t3" id="tablero"><li class="icon fa fa-rocket" id="tres"></li><h6>Tablero</h6></a>
+            <a href="#t1" id="salir"><li class="icon fa fa-dribbble" id="cuatro"></li><h6>Salir</h6></a>
+            <a href="#t5" id="ingresar"><li class="icon fa fa-plus-circle" id="cinco"></li><h6>Ingresar</h6></a>
+            <a href="#t4" id="otro"><li class="icon fa fa-dribbble" id="seis"></li><h6>Otro</h6></a>
+          </ul>
+          <div class="page" id="p1">
+            <section class="icon fa fa-bolt"><span class="title">Bienvenido a QuestBoard</span><span class="hint"></span></section>
+          </div>
+          <div class="page" id="p2">
+            {% include 'matchmaking.html' %}
+          </div>
+          <div class="page" id="p3">
+            {% include 'misiones.html' %}
+          </div>
+          <div class="page" id="p4">
+            <section class="icon fa fa-dribbble">
+              <span class="title">Dribbble</span>
+              <p class="hint">
+                <a href="https://dribbble.com/albertohartzet" target="_blank">Im ready to play, <span class="hint line-trough">invite me </span> find me</a>
+              </p>
+              <p class="hint">Already invited by <a href="http://www.dribbble.com/mrpeters" target="_blank">Stan Peters</a></p>
+            </section>
+          </div>
+          <div class="page" id="p5">
+              {% include 'ingresar.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  {% block content %} {% endblock %}
-</main>
-{% include "body_script.html" %}
+<div class="social">
+  <div class="s-m">
+    <div class="col" id="asd">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
 </body>
 </html>

@@ -3,7 +3,6 @@ from django.conf import settings
 
 # Create your views here.
 def inicio(request):
-    context = {
+    print("HOLI");
+    return render(request, "base.html")
 
-    }
-    return render(request, "inicio.html",context)
