@@ -59,7 +59,50 @@ class TorneoRecompensa(models.Model):
 class UsuarioRecompensa(models.Model):
 
     cantidad = models.IntegerField(default=0)
+    
+class Dia(models.Model):
+    
+    nombre = models.CharField(max_length=100)
+    intervalo = models.CharField(max_length=100)
 
+class Mision(models.Model):
+    
+    nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=100)
+    vigencia = models.DateField(auto_now=False, auto_now_add=False)
+    minJugadores = models.IntegerField(default=0)
+    maxJugadores = models.IntegerField(default=0)
+    aceptada = models.BooleanField(default=False)
+    
+class Torneo(models.Model):
+    
+    fechaInicio = models.DateField(auto_now=False, auto_now_add=False)
+    fechaFin = models.DateField(auto_now=False, auto_now_add=False)
+    maxEquipos = models.IntegerField(default=0)
+    minEquipos = models.IntegerField(default=0)
+    terminado = models.BooleanField(default=False)
 
+class Juego(models.Model):
+    
+    nombre = models.CharField(max_length=100)
+    genero = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=100)
 
+class Empresa(models.Model):
+    
+    nombre = models.CharField(max_length=100)
+    
+class Logro(models.Model):
+    
+    imagen = models.CharField(max_length=400)
+    nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=100)
+    
+class Usuario_Juego(models.Model):
+    
+    horasJugadas = models.CharField(max_length=100)
+    #estadisticas = 1
 
+class Usuario_Juego_Logro(models.Model):
+    
+    aceptada = models.BooleanField(default=False)
