@@ -1,4 +1,3 @@
-from conda_build.os_utils.pyldd import machofile
 from django.db import models
 
 
