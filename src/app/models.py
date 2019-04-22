@@ -101,7 +101,7 @@ class Logro(models.Model):
 class Usuario_Juego(models.Model):
     
     horasJugadas = models.CharField(max_length=100)
-    #estadisticas = 1
+    estadisticas = models.CharField(max_length=600)
 
 class Usuario_Juego_Logro(models.Model):
     
