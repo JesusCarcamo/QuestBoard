@@ -47,3 +47,6 @@ class DiaSerializer (serializers.Serializer):
     nombre = serializers.CharField(required=True, allow_blank=False, max_length=100)
     intervalo = serializers.CharField(required=True, allow_blank=False, max_length=100)
     jugador = serializers.StringRelatedField(many=True, required=False)
+    
+    def create(self, validated_data):
+        return Jugador.objects.create(**validated_data)
