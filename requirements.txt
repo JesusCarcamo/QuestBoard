@@ -1,1 +1,9 @@
 Django~=2.0.6
+numpy
+scipy
+matplotlib
+pandas
+scikit-learn
+djangorestframework
+markdown
+django-filter
