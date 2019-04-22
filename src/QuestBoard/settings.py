@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'QuestBoard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'QuestBoard',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '12345678',
         'HOST': 'localhost',
-        'PORT': ''
+        'PORT': '5432'
     }
 }
 
