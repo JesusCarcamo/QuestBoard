@@ -64,6 +64,8 @@ class Dia(models.Model):
     
     nombre = models.CharField(max_length=100)
     intervalo = models.CharField(max_length=100)
+    jugador = models.ForeignKey(Jugador, on_delete=models.DO_NOTHING)
+
 
 class Mision(models.Model):
     
@@ -73,7 +75,9 @@ class Mision(models.Model):
     minJugadores = models.IntegerField(default=0)
     maxJugadores = models.IntegerField(default=0)
     aceptada = models.BooleanField(default=False)
-    
+    jugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
+
+
 class Torneo(models.Model):
     
     fechaInicio = models.DateField(auto_now=False, auto_now_add=False)
@@ -82,27 +86,30 @@ class Torneo(models.Model):
     minEquipos = models.IntegerField(default=0)
     terminado = models.BooleanField(default=False)
 
+
 class Juego(models.Model):
     
     nombre = models.CharField(max_length=100)
     genero = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
+    jugador = models.ForeignKey(Jugador, on_delete=models.DO_NOTHING)
+    horasJugadas = models.CharField(max_length=100)
+    estadisticas = models.CharField(max_length=600)
+    dia = models.ForeignKey(Dia, on_delete=models.DO_NOTHING)
+
 
 class Empresa(models.Model):
     
     nombre = models.CharField(max_length=100)
-    
+
+
 class Logro(models.Model):
     
     imagen = models.CharField(max_length=400)
     nombre = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
-    
-class Usuario_Juego(models.Model):
-    
-    horasJugadas = models.CharField(max_length=100)
-    estadisticas = models.CharField(max_length=600)
 
-class Usuario_Juego_Logro(models.Model):
+
+class UsuarioJuegoLogro(models.Model):
     
     aceptada = models.BooleanField(default=False)
