@@ -6,4 +6,6 @@ pandas
 scikit-learn
 djangorestframework
 markdown
+psycopg2
+psycopg2-binary
 django-filter
