@@ -4,7 +4,7 @@ from .serializers import JugadorSerializer, MisionSerializer
 from rest_framework.parsers import JSONParser
 from .models import Jugador, Mision, Juego, Dia
 from django.views.decorators.csrf import csrf_exempt
-
+from django.http import HttpResponse, JsonResponse
 # Create your views here.
 def inicio(request):
     return render(request, "base.html")
