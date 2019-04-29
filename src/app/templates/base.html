@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <title>QuestBoard</title>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -35,7 +35,6 @@
       -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
       -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
       color: #fff;
-      overflow: hidden;
     }
 
     * {
@@ -63,15 +62,24 @@
       justify-content: center;
     }
     #p3 { background: gold; }
-    #p4 { background: deeppink; }
+    #p4 { background: deeppink;
+      height: 150%;}
     #p5 { background: rebeccapurple; }
 
     #t2:target #p2,
     #t3:target #p3,
-    #t4:target #p4,
     #t5:target #p5 {
       transform: translateX(-190%);
       -webkit-transform: translateX(-190%);
+      -moz-transform: translateX(-190%);
+      -o-transform: translateX(-190%);
+      transition-delay: .4s !important;
+    }
+
+    #t4:target #p4
+    {
+      transform: translateX(-190%);
+      -webkit-transform: translateX(-210%);
       -moz-transform: translateX(-190%);
       -o-transform: translateX(-190%);
       transition-delay: .4s !important;
@@ -82,6 +90,7 @@
     #t4:target #p1,
     #t5:target #p1{
       background: black;
+      position:fixed;
     }
 
     #t2:target #p1 .icon,
@@ -115,7 +124,7 @@
 
     #t2:target #dos,
     #t3:target #tres,
-    #t4:target #cuatro,
+    #t4:target #seis,
     #t5:target #cinco {
       transform: scale(1.2) !important;
       -webkit-transform: scale(1.2) !important;
@@ -270,9 +279,9 @@
             <a href="#t1" ><li class="icon fa fa-bolt" id="uno"></li><h6>Inicio</h6></a>
             <a href="#t2" id="match"><li class="icon fa fa-keyboard-o" id="dos"></li><h6>Match</h6></a>
             <a href="#t3" id="tablero"><li class="icon fa fa-rocket" id="tres"></li><h6>Tablero</h6></a>
+            <a href="#t4" id="perfil"><li class="icon fa fa-dribbble" id="seis"></li><h6>Perfil</h6></a>
             <a href="#t1" id="salir"><li class="icon fa fa-dribbble" id="cuatro"></li><h6>Salir</h6></a>
             <a href="#t5" id="ingresar"><li class="icon fa fa-plus-circle" id="cinco"></li><h6>Ingresar</h6></a>
-            <a href="#t4" id="otro"><li class="icon fa fa-dribbble" id="seis"></li><h6>Otro</h6></a>
           </ul>
           <div class="page" id="p1">
             <section class="icon fa fa-bolt"><span class="title">Bienvenido a QuestBoard</span><span class="hint"></span></section>
@@ -284,16 +293,10 @@
             {% include 'misiones.html' %}
           </div>
           <div class="page" id="p4">
-            <section class="icon fa fa-dribbble">
-              <span class="title">Dribbble</span>
-              <p class="hint">
-                <a href="https://dribbble.com/albertohartzet" target="_blank">Im ready to play, <span class="hint line-trough">invite me </span> find me</a>
-              </p>
-              <p class="hint">Already invited by <a href="http://www.dribbble.com/mrpeters" target="_blank">Stan Peters</a></p>
-            </section>
+            {% include 'perfil.html' %}
           </div>
           <div class="page" id="p5">
-              {% include 'ingresar.html' %}
+            {% include 'ingresar.html' %}
           </div>
         </div>
       </div>
@@ -311,5 +314,6 @@
     </div>
   </div>
 </div>
+
 </body>
 </html>

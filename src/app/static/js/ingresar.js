@@ -41,9 +41,21 @@ $(function() {
     $(".btn-goback").click(function() {
         $("#match").show();
         $("#tablero").show();
+        $("#perfil").show();
         $("#salir").show();
+        $(".social").show();
         $("#menu").css("top", "25%");
         $("#ingresar").hide();
+        $(".btn-animate").removeClass("btn-animate-grow");
+        $(".welcome").removeClass("welcome-left");
+        $(".cover-photo").removeClass("cover-photo-down");
+        $(".frame").removeClass("frame-short");
+        $(".profile-photo").removeClass("profile-photo-down");
+        $(".btn-goback").removeClass("btn-goback-up");
+        $(".forgot").removeClass("forgot-fade");
+        $(".nav").removeClass("nav-up");
+        $(".success").removeClass("success-left");
+        $(".welcome2").removeClass("welcome-left");
     });
 
 });
