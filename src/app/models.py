@@ -111,4 +111,9 @@ class Logro(models.Model):
 
 class UsuarioJuegoLogro(models.Model):
     
-    aceptada = models.BooleanField(default=False)
+    completado = models.BooleanField(default=False)
+	
+class UsuarioJuego(models.Model):
+    
+    horasJugadas = models.CharField(max_length=100)
+    estadisticas = models.CharField(max_length=600)
