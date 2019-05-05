@@ -25,7 +25,7 @@ SECRET_KEY = '-kbcut^lnd5&lu7kum#!otoy3t_aw-_7yux3$5=-a6m=l)#)3h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.24.41.200']
 
 
 # Application definition
@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'QuestBoard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'QuestBoard',
         'USER': 'postgres',
         'PASSWORD': '12345678',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': ''
     }
 }
 

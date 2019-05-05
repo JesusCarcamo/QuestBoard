@@ -112,3 +112,4 @@ class Logro(models.Model):
 class UsuarioJuegoLogro(models.Model):
     
     aceptada = models.BooleanField(default=False)
+
