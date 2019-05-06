@@ -58,10 +58,6 @@ class Juego(models.Model):
     nombre = models.CharField(max_length=100)
     genero = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=1000)
-    nivel= models.IntegerField(default=1)
-    nombreInvocador = models.CharField(max_length=50)
-    region = models.CharField(max_length=100)
-    maestriaTotal = models.IntegerField(default=0)
 
 
 
@@ -145,4 +141,8 @@ class Notificacion(models.Model):
 #
 #     nombre = models.CharField(max_length=100)
 
-
+class League(models.Model):
+    nivel = models.IntegerField(default=1)
+    nombreInvocador = models.CharField(max_length=50)
+    region = models.CharField(max_length=100)
+    maestriaTotal = models.IntegerField(default=0)

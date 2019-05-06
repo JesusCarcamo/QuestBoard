@@ -15,7 +15,7 @@ def inicio(request):
 
 class JuegoC(dict):
     def __init__(self, nivel, nombreInvocador, region, maestriaTotal):
-        dict.__init__(self, nombre='League of Legends', genero='MOBA', descripcion='Juegazo', nivel=nivel, nombreInvocador=nombreInvocador, region=region, maestriaTotal=maestriaTotal)
+        dict.__init__(self, nivel=nivel, nombreInvocador=nombreInvocador, region=region, maestriaTotal=maestriaTotal)
 
 
 
@@ -164,9 +164,9 @@ def info_lol(request, region, nombre):
             if responseMastery.status_code == 200:
                 nuevo = JuegoC(jsonUsuario['summonerLevel'], jsonUsuario['name'], region, responseMastery.json())
 
-                serializer = JuegoSerializer(data=nuevo)
+                serializer = LeagueSerializer(data=nuevo)
                 if serializer.is_valid():
                     serializer.save()
                     return JsonResponse(nuevo, status=200, safe=False)
         else:
-            return HttpResponse(status=404)
+            return JsonResponse("revisa el nombre de ivocador o la region pues no pudimos encontrarte en la base de datos de riot", status=404, safe=False)

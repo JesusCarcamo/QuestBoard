@@ -92,5 +92,10 @@ class NotificacionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class LeagueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = League
+        fields = '__all__'
+
 
 

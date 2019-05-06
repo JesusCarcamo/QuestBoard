@@ -32,5 +32,6 @@ urlpatterns = [
     path('dia/<int:pk>', views.DiaDetail.as_view()),
     path('jugador_juego/', views.JugadorJuegoList.as_view()),
     path('jugador_juego/<int:pk>', views.JugadorJuegoDetail.as_view()),
+    #----------------------------RIOT API-------------------------------------------------------------------------------
     path('league/<str:region>/<str:nombre>', views.info_lol)
 ]
