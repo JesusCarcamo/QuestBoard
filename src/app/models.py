@@ -14,11 +14,11 @@ class Jugador(models.Model):
     estado = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=100)
     # ----------------Relaciones-------------------
-    misionesAdquiridas=models.ManyToManyField('Mision', related_name='cazaRecompensas')
+    misionesAdquiridas=models.ManyToManyField('Mision', related_name='cazaRecompensas', null=True)
     recompensas = models.ManyToManyField('Recompensa', through='JugadorRecompensa')
     juegos=models.ManyToManyField('Juego', through='JugadorJuego')
-    amigos=models.ManyToManyField('self')
-    notificaciones = models.ManyToManyField('Notificacion')
+    amigos=models.ManyToManyField('self', null=True)
+    notificaciones = models.ManyToManyField('Notificacion', null=True)
 
 
 class Mision(models.Model):
