@@ -48,36 +48,75 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <ul className="list-group list-group-flush">
-                                            <li className="list-group-item">REWARD: 300
-                                            </li>
-                                        </ul>
-                                        <div className="card-body">
-                                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                                                Leer más
-                                            </button>
+                                    </div>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">REWARD: 300
+                                        </li>
+                                    </ul>
+                                    <div className="card-body">
+                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                                            Leer más
+                                        </button>
 
-                                            <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                                <div className="modal-dialog" role="document">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title" id="exampleModalLongTitle">{this.props.nombre}</h5>
-                                                            <img className="card-img-top mision_img1" src="../static/img/pc_logo.jpg" align = "left" alt="Card image cap" />
-                                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <p>{this.props.descripcion}</p>
+                                        <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                            <div className="modal-dialog" role="document">
+                                                <div className="modal-content">
+                                                    <div className="modal-header">
+                                                        <h5 className="modal-title" id="exampleModalLongTitle">{this.props.nombre}</h5>
+                                                        <img className="card-img-top mision_img1" src="../static/img/pc_logo.jpg" align = "left" alt="Card image cap" />
+                                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div className="modal-body">
+                                                        <p>{this.props.descripcion}</p>
+                                                        <hr />
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <img className="card-img-top mision" src="../static/img/lol_logo.png" align = "left" alt="Card image cap" />
+                                                                </td>
+                                                                <td>
+                                                                    <p className="card-text mision-text">{this.props.juego}</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
 
-                                                        </div>
+                                                                <td>
+                                                                    <p className="card-text mision-text">{this.props.numJugadores}/{this.props.maxJugadores} Jugadores</p>
+                                                                </td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td><p>Berserker1523</p></td>
+                                                                <td ><p>TheBigLord16</p></td>
+                                                                <td><p>DittoCastform</p></td>
+
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <hr />
+                                                        <p>REWARD: </p>
+                                                        <ul>
+                                                            <li><p>300 </p></li>
+                                                            <li><p>600 exp</p></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className="modal-footer">
+                                                        <p className="mision-text2" >Vence el: {this.props.vigencia}</p>
+                                                        <button type="button" className="btn btn-success" data-dismiss="modal">Aceptar</button>
+                                                        <button type="button" className="btn btn-danger " data-dismiss="modal">Rechazar</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <a href="#" className="card-link">Rechazar</a>
                                     </div>
                                 </div>
                             </div>
+
 
 
                         );
