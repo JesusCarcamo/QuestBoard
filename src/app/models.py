@@ -14,11 +14,10 @@ class Jugador(models.Model):
     estado = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=100)
     # ----------------Relaciones-------------------
-    misionesAdquiridas=models.ManyToManyField('Mision', related_name='cazaRecompensas')
     recompensas = models.ManyToManyField('Recompensa', through='JugadorRecompensa')
     juegos=models.ManyToManyField('Juego', through='JugadorJuego')
-    amigos=models.ManyToManyField('self')
-    notificaciones = models.ManyToManyField('Notificacion')
+    #amigos=models.ManyToManyField('self', default= None,null=True)
+    #notificaciones = models.ManyToManyField('Notificacion', default= None,null=True)
 
 
 class Mision(models.Model):
@@ -30,6 +29,7 @@ class Mision(models.Model):
     completada = models.BooleanField(default=False)
     #----------------Relaciones-------------------
     contratista = models.ForeignKey(Jugador, on_delete=models.DO_NOTHING)
+    cazaRecompensas = models.ManyToManyField(Jugador, default=None, null=True, related_name='misionesAdquiridas')
     recompensas=models.ManyToManyField('Recompensa', through='MisionRecompensa')
     juego= models.ForeignKey('Juego', related_name='misiones', on_delete=models.DO_NOTHING)
     logro = models.ForeignKey('Logro', null=True, related_name="misiones", on_delete=models.DO_NOTHING)
