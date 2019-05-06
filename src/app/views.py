@@ -1,4 +1,5 @@
-from django.http import JsonResponse
+import requests
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
 from rest_framework import generics
@@ -144,3 +145,11 @@ class NotificacionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Notificacion.objects.all()
     serializer_class = NotificacionSerializer
 
+
+def info_lol(request, region, nombre):
+    if request.method == 'GET':
+        response = requests.get("https://"+region+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+nombre+"?api_key=RGAPI-1ea1f0b7-f93c-4f9b-bd8d-64d4c8f74799")
+        if response.status_code == 200:
+            return JsonResponse(response.json(), status=200)
+        else:
+            return HttpResponse(status=404)
