@@ -173,6 +173,7 @@ def info_lol(request, region, nombre, jugador, juego):
                 print(info)
                 serializer = JugadorJuegoSerializer(data=info)
                 if serializer.is_valid():
+                    serializer.save()
                     return JsonResponse(nuevo, status=200, safe=False)
         else:
             return JsonResponse("revisa el nombre de ivocador o la region pues no pudimos encontrarte en la base de datos de riot", status=404, safe=False)
