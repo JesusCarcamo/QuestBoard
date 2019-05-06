@@ -1,6 +1,4 @@
-html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-
-body {
+#body {
     background:
             linear-gradient(
                     rgba(246,247,249,0.8),
@@ -8,11 +6,10 @@ body {
             url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/sky-clouds-cloudy-mountain.jpg) no-repeat center center fixed;
     background-size: cover;
 }
-
-.container {
-    width: 100%;
-    padding-top: 60px;
-    padding-bottom: 100px;
+#containerIngresar {
+     width: 100%;
+     padding-top: 60px;
+     padding-bottom: 100px;
 }
 
 .frame {
@@ -56,7 +53,8 @@ body {
     opacity: 0;
 }
 
-li {
+.signin-active,
+.signup-inactive{
     padding-left: 10px;
     font-size: 18px;
     display: inline;
