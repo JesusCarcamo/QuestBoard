@@ -1,0 +1,33 @@
+.jumbotron {
+  margin-bottom: 0;
+  background-color: #fff;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+#container
+{
+  padding-top: 0px;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+  color: #000000;
+}
+
+.card-text, .card-title
+{
+  color: #000000;
+}
+
+#tablero
+{
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+
