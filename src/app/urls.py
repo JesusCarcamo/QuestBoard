@@ -33,5 +33,5 @@ urlpatterns = [
     path('jugador_juego/', views.JugadorJuegoList.as_view()),
     path('jugador_juego/<int:pk>', views.JugadorJuegoDetail.as_view()),
     #----------------------------RIOT API-------------------------------------------------------------------------------
-    path('league/<str:region>/<str:nombre>', views.info_lol)
+    path('league/<str:region>/<str:nombre>/<int:jugador>/<int:juego>', views.info_lol)
 ]

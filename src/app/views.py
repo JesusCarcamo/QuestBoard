@@ -18,8 +18,8 @@ class JuegoC(dict):
         dict.__init__(self, nivel=nivel, nombreInvocador=nombreInvocador, region=region, maestriaTotal=maestriaTotal)
 
 class JugadorJuegoC(dict):
-    def __init__(self, hrs, estadisticas):
-        dict.__init__(self, horasJugadas=hrs, estadisticas=estadisticas)
+    def __init__(self, hrs, estadisticas, jugador, juego):
+        dict.__init__(self, horasJugadas=hrs, estadisticas=estadisticas, jugador=jugador, juego=juego)
 
 
 #-------------------------------Clases de Asociacion--------------------------------------------------------------------
@@ -158,7 +158,7 @@ class NotificacionDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = NotificacionSerializer
 
 
-def info_lol(request, region, nombre):
+def info_lol(request, region, nombre, jugador, juego):
     if request.method == 'GET':
         responseUsuario = requests.get("https://"+region+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+nombre+"?api_key=RGAPI-1ea1f0b7-f93c-4f9b-bd8d-64d4c8f74799")
         if responseUsuario.status_code == 200:
@@ -169,7 +169,7 @@ def info_lol(request, region, nombre):
 
                 estadisticas = ""+str(jsonUsuario['summonerLevel'])+","+str(jsonUsuario['name'])+","+region+","+str(responseMastery.json())
                 print(estadisticas)
-                info = JugadorJuegoC(10, estadisticas)
+                info = JugadorJuegoC(10, estadisticas, jugador, juego)
                 print(info)
                 serializer = JugadorJuegoSerializer(data=info)
                 if serializer.is_valid():
