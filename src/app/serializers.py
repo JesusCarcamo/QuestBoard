@@ -59,7 +59,6 @@ class JugadorSerializer(serializers.ModelSerializer):
 
 
 class MisionSerializer(serializers.ModelSerializer):
-    cazaRecompensas = JugadorSerializer(read_only=True, many=True)
     class Meta:
         model = Mision
         fields = '__all__'
