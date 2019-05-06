@@ -58,10 +58,11 @@ class Juego(models.Model):
     nombre = models.CharField(max_length=100)
     genero = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=1000)
+    nivel= models.IntegerField(default=1)
     nombreInvocador = models.CharField(max_length=50)
     region = models.CharField(max_length=100)
-    mastery1 = models.IntegerField(default=0)
-    
+    maestriaTotal = models.IntegerField(default=0)
+
 
 
 class Logro(models.Model):

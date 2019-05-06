@@ -1,14 +1,23 @@
 import requests
+import json
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
 from rest_framework import generics
+from rest_framework.parsers import JSONParser
 from .models import *
 from .serializers import *
 
 # Create your views here.
 def inicio(request):
     return render(request, "base.html")
+
+
+class JuegoC(dict):
+    def __init__(self, nivel, nombreInvocador, region, maestriaTotal):
+        dict.__init__(self, nombre='League of Legends', genero='MOBA', descripcion='Juegazo', nivel=nivel, nombreInvocador=nombreInvocador, region=region, maestriaTotal=maestriaTotal)
+
+
 
 #-------------------------------Clases de Asociacion--------------------------------------------------------------------
 
@@ -148,8 +157,16 @@ class NotificacionDetail(generics.RetrieveUpdateDestroyAPIView):
 
 def info_lol(request, region, nombre):
     if request.method == 'GET':
-        response = requests.get("https://"+region+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+nombre+"?api_key=RGAPI-1ea1f0b7-f93c-4f9b-bd8d-64d4c8f74799")
-        if response.status_code == 200:
-            return JsonResponse(response.json(), status=200)
+        responseUsuario = requests.get("https://"+region+".api.riotgames.com/lol/summoner/v4/summoners/by-name/"+nombre+"?api_key=RGAPI-1ea1f0b7-f93c-4f9b-bd8d-64d4c8f74799")
+        if responseUsuario.status_code == 200:
+            jsonUsuario = responseUsuario.json()
+            responseMastery = requests.get("https://"+region+".api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/"+jsonUsuario['id']+"?api_key=RGAPI-1ea1f0b7-f93c-4f9b-bd8d-64d4c8f74799")
+            if responseMastery.status_code == 200:
+                nuevo = JuegoC(jsonUsuario['summonerLevel'], jsonUsuario['name'], region, responseMastery.json())
+
+                serializer = JuegoSerializer(data=nuevo)
+                if serializer.is_valid():
+                    serializer.save()
+                    return JsonResponse(nuevo, status=200, safe=False)
         else:
             return HttpResponse(status=404)
